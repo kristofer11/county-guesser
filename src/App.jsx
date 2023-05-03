@@ -10,7 +10,7 @@ function App() {
   return (
     <>
     <Header />
-        <h4>X marks the spot: select the correct county from the options and start your streak!</h4>
+        <h4 id='countyDisplay'>X marks the spot: select the correct county from the options and start your streak!</h4>
         <GameBoard />
     </>
   )

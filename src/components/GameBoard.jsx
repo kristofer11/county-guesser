@@ -35,6 +35,42 @@ const GameBoard = () => {
 
 
     //Add 'handleClick' function for user selection
+    const handleButtonClick = (e, currentCounty) => {
+        const countyDisplay = document.getElementById('countyDisplay');
+        const buttons = document.querySelectorAll('.optionButton')
+
+        if (e.target.textContent == currentCounty.name) {
+            countyDisplay.textContent = `That is correct, it's ${currentCounty.name}`
+            setCurrentStreak(currentStreak + 1);
+        } else {
+            countyDisplay.textContent = `Nope sorry! That one is ${currentCounty.name}`;
+            setCurrentStreak(0);
+        }
+
+        buttons.forEach((button) => button.disabled = true);
+
+        setTimeout(() => {
+            countyDisplay.textContent = 'Next county...'
+            buttons.forEach((button) => button.disabled = false)
+            const randomIndex = Math.floor(Math.random() * counties.length);
+            const randomCountry = counties[randomIndex];
+            setCurrentCounty(randomCountry);
+//This is all duplicate code from above. Make this cleaner
+            const names = [randomCountry.name]
+            while (names.length < 4) {
+                const randomName = counties[Math.floor(Math.random() * counties.length)].name;
+                if (!names.includes(randomName)) {
+                    names.push(randomName);
+                }
+            }
+            console.log(names)
+
+            const shuffledNames = names.sort(() => Math.random() - 0.5);
+            setButtonNames(shuffledNames);
+            console.log(buttonNames)
+        }
+            , 3000)
+    }
 
     //Add 'handleNextCounty' function for 'next' button
 
@@ -45,16 +81,28 @@ const GameBoard = () => {
                     <h5>Current Streak: {currentStreak}</h5>
                     <img src={currentCounty.img} width='400px' />
                     <div className='buttonDiv'>
-                        <Button className='optionButton'>
+                        <Button 
+                            className='optionButton'
+                            onClick = {(e) => handleButtonClick(e, currentCounty)}
+                        >
                             {buttonNames[0]}
                         </Button>
-                        <Button className='optionButton'>
+                        <Button 
+                            className='optionButton'
+                            onClick = {(e) => handleButtonClick(e, currentCounty)}
+                        >
                             {buttonNames[1]}
                         </Button>
-                        <Button className='optionButton'>
+                        <Button 
+                            className='optionButton'
+                            onClick = {(e) => handleButtonClick(e, currentCounty)}
+                        >
                             {buttonNames[2]}
                         </Button>
-                        <Button className='optionButton'>
+                        <Button 
+                            className='optionButton'
+                            onClick = {(e) => handleButtonClick(e, currentCounty)}
+                        >
                             {buttonNames[3]}
                         </Button>
                     </div>
