@@ -40,17 +40,20 @@ const GameBoard = () => {
         const buttons = document.querySelectorAll('.optionButton')
 
         if (e.target.textContent == currentCounty.name) {
-            countyDisplay.textContent = `That is correct, it's ${currentCounty.name}`
+            countyDisplay.textContent = `That is correct, it's ${currentCounty.name}`;
+            countyDisplay.style.color = 'green';
             setCurrentStreak(currentStreak + 1);
         } else {
             countyDisplay.textContent = `Nope sorry! That one is ${currentCounty.name}`;
             setCurrentStreak(0);
+            countyDisplay.style.color = 'red';
         }
 
         buttons.forEach((button) => button.disabled = true);
 
         setTimeout(() => {
-            countyDisplay.textContent = 'Next county...'
+            countyDisplay.textContent = 'Next county...';
+            countyDisplay.style.color = 'black';
             buttons.forEach((button) => button.disabled = false)
             const randomIndex = Math.floor(Math.random() * counties.length);
             const randomCountry = counties[randomIndex];
@@ -69,7 +72,7 @@ const GameBoard = () => {
             setButtonNames(shuffledNames);
             console.log(buttonNames)
         }
-            , 3000)
+            , 1000)
     }
 
     //Add 'handleNextCounty' function for 'next' button
