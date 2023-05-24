@@ -74,7 +74,7 @@ const GameBoard = () => {
             setButtonNames(shuffledNames);
             console.log(buttonNames)
         }
-            , 1000)
+            , 1500)
     }
 
     //Add 'handleNextCounty' function for 'next' button
