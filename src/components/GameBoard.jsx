@@ -42,13 +42,13 @@ const GameBoard = () => {
         if (e.target.textContent == currentCounty.name) {
             countyDisplay.textContent = `That is correct, it's ${currentCounty.name}`;
             countyDisplay.style.color = 'green';
-            countyDisplay.style.fontSize = '2rem';
+            countyDisplay.style.fontSize = '3rem';
             setCurrentStreak(currentStreak + 1);
         } else {
             countyDisplay.textContent = `Nope sorry! That one is ${currentCounty.name}`;
             setCurrentStreak(0);
             countyDisplay.style.color = 'red';
-            countyDisplay.style.fontSize = '2rem';
+            countyDisplay.style.fontSize = '3rem';
         }
 
         buttons.forEach((button) => button.disabled = true);
