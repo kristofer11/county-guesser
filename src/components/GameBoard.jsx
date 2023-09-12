@@ -55,7 +55,8 @@ const GameBoard = () => {
 
         setTimeout(() => {
             countyDisplay.textContent = 'Next county...';
-            countyDisplay.style.color = 'black';
+            countyDisplay.style.color = '#15884C';
+            countyDisplay.style.fontSize = '2rem';
             buttons.forEach((button) => button.disabled = false)
             const randomIndex = Math.floor(Math.random() * counties.length);
             const randomCountry = counties[randomIndex];
@@ -84,7 +85,7 @@ const GameBoard = () => {
             {currentCounty ? (
                 <>
                     <h5>Current Streak: {currentStreak}</h5>
-                    <img src={currentCounty.img} width='400px' />
+                    <img src={currentCounty.img} className='map' />
                     <div className='buttonDiv'>
                         <Button 
                             className='optionButton'

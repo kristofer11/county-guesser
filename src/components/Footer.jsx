@@ -1,6 +1,8 @@
 const Footer = () => {
   return (
-    <div className="footer">© Kris Hvattum 2023</div>
+    <nav className="footer">
+        <h3>© Kris Hvattum 2023</h3>
+    </nav>
   )
 }
 

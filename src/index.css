@@ -23,17 +23,32 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+.body{
+    padding: 1rem;
+}
+
+body, .container {
   margin: 0;
   display: flex;
+  flex-direction: column;
   place-items: center;
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 100vh;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+#countyDisplay{
+    margin: 0 !important;
+    color:#15884C;
+}
+
+.map{
+    max-width: 98%;
+    width: 777px;
 }
 
 .buttonDiv{
@@ -63,6 +78,11 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.footer{
+    margin-top: auto;
+    padding-top: 4rem;
 }
 
 /* @media (prefers-color-scheme: light) {
